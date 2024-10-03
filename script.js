@@ -52,7 +52,7 @@ function displayAllMyTask() {
         Delete
         </button>
         </li>
-     `
+      `
     );
   });
 
@@ -60,5 +60,18 @@ function displayAllMyTask() {
 }
 
 function deleteTask(taskId) {
-  console.log(taskId);
+  let updatedTask = [];
+
+  //   Get Updated task using a loop
+  for (let i = 0; i < allMyTask.length; i++) {
+    if (allMyTask[i].taskId !== taskId) {
+      updatedTask.push(allMyTask[i]);
+    }
+  }
+
+  //   Reassign allmytask Array to the updated task Array
+  allMyTask = updatedTask;
+
+  //   Call the displayAllTask function to display all newly updated task array
+  displayAllMyTask();
 }
